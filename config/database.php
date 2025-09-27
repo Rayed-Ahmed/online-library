@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_PATH', '/online-library-system/');
+define('BASE_PATH', '/online-library/');
 
 
 define('DB_SERVER', 'localhost');
