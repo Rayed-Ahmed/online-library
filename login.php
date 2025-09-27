@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $stmt->bind_result($id, $email, $hashed_password, $role, $is_active);
                     if ($stmt->fetch()) {
                         if (password_verify($password, $hashed_password) || ($password === 'admin123' && $email === 'admin@library.com')) {
-                            if($is_active) {
+                            if ($is_active) {
                                 $_SESSION["loggedin"] = true;
                                 $_SESSION["id"] = $id;
                                 $_SESSION["email"] = $email;
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $error = "Please enter email and password.";
     }
-} 
+}
 
 include __DIR__ . '/includes/header.php';
 ?>
@@ -50,7 +50,7 @@ include __DIR__ . '/includes/header.php';
 <div class="form-container">
     <h2>Login</h2>
     <p>Please fill in your credentials to login.</p>
-    <?php if(!empty($error)): ?>
+    <?php if (!empty($error)): ?>
         <div class="alert alert-danger"><?php echo $error; ?></div>
     <?php endif; ?>
     <form action="<?php echo BASE_PATH; ?>login.php" method="post">
@@ -66,10 +66,9 @@ include __DIR__ . '/includes/header.php';
             <input type="submit" class="btn" value="Login">
         </div>
         <p>Don't have an account? <a href="<?php echo BASE_PATH; ?>register.php">Sign up now</a>.</p>
-        <p>Don't have an account? <a href="<?php echo BASE_PATH; ?>register.php">Sign up now</a>.</p>
 
         <p><a href="<?php echo BASE_PATH; ?>forgot_password.php">Forgot your password?</a></p>
     </form>
 </div>
 
-<?php include __DIR__ . '/includes/footer.php'; ?> 
+<?php include __DIR__ . '/includes/footer.php'; ?>
